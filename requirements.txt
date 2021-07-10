@@ -1,0 +1,8 @@
+Pillow
+imutils 
+pytesseract
+tesseract
+tesseract-ocr
+pdf2image
+sudo apt-get install tesseract-ocr
+sudo apt install libtesseract-dev
