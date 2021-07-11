@@ -19,7 +19,7 @@ def get_info(line):
     return 'NaN'
 
 
-pdf_files = os.listdir('diff_format')
+pdf_files = os.listdir('dataset')
 fields = ['type', 'height', 'length', 'width']
 outfile = "data.csv"
 with open(outfile, 'a') as csvfile:
@@ -28,7 +28,7 @@ with open(outfile, 'a') as csvfile:
 
 # Path of the pdf
 for pdf_file in pdf_files:
-    PDF_file = 'diff_format/{}'.format(pdf_file)#"dataset/car3.pdf"
+    PDF_file = 'dataset/{}'.format(pdf_file)#"dataset/car3.pdf"
     # PDF_file = "dataset/car47.pdf"
     print('file', PDF_file)
 

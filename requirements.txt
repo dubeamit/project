@@ -1,4 +1,9 @@
 Pillow
+sklearn
+pandas
+matplotlib
+opencv-python
+numpy
 imutils 
 pytesseract
 tesseract

@@ -141,31 +141,41 @@ def get_string(img_path):
     return data_text
 
 
-text = get_string('Images/page_1.jpg')
-# text = get_string('Images/page_6.jpg')
+img_list = ['page_12_52.jpg',  'page_5_28.jpg',  'page_9_15.jpg',   'page_5_21.jpg',  'page_5_28.jpg',  'page_5.jpg',
+'page_12.jpg',     'page_5_3.jpg',   'page_9.jpg',      'page_5_28.jpg',  'page_5_3.jpg',   
+'page_1.jpg',      'page_5.jpg',     'test.png',        'page_5_3.jpg',   'page_5.jpg',
+'page_23.jpg',     'page_6.jpg',     'page_12_52.jpg',  'page_5.jpg',     'page_8_50.jpg',
+'page_4_11.jpg',   'page_8_26.jpg',  'page_12.jpg',     'page_8_50.jpg',  'page_9.jpg',
+'page_4.jpg',      'page_8_50.jpg',  'page_4_11.jpg',   'page_9.jpg',     'page_5_3.jpg',
+'page_5_21.jpg',   'page_8.jpg',     'page_4.jpg',      'page_4.jpg',     'page_5.jpg',
+]
 
-word = ''
-for line in text.split('\n'):
-    line = line.lower()
-    # print('line', line)
-    if ('overall length' in line or 'length' in line):
+
+for img in img_list:
+    print()
+    print('img', img)
+    text = get_string(f'img_data/{img}')
+    # text = get_string('Images/page_6.jpg')
+
+    word = ''
+    for line in text.split('\n'):
+        line = line.lower()
+        if ('overall length' in line or 'length' in line):
+                word = ''.join(e for e in line if e.isdigit())
+                print('line', line)
+                print(word)
+
+        elif ('overall width' in line or 'width' in line):
             word = ''.join(e for e in line if e.isdigit())
             print('line', line)
             print(word)
 
-    elif ('overall width' in line or 'width' in line):
-        word = ''.join(e for e in line if e.isdigit())
-        print('line', line)
-        print(word)
-
-    elif ('overall height' in line or 'height' in line):
-        word = ''.join(e for e in line if e.isdigit())
-        print('line', line)
-        print(word)
-    
-    elif 'length x width x height' in line:
-        print('line', line)
-        word = ''.join(e for e in line if e.isdigit())
-        print('yo', word[:4],' ', word[4:8], ' ', word[8:12])
-
-
+        elif ('overall height' in line or 'height' in line):
+            word = ''.join(e for e in line if e.isdigit())
+            print('line', line)
+            print(word)
+        
+        elif 'length x width x height' in line:
+            print('line', line)
+            word = ''.join(e for e in line if e.isdigit())
+            print('yo', word[:4],' ', word[4:8], ' ', word[8:12])

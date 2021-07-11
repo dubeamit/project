@@ -19,6 +19,15 @@ def replace_chars(text):
     return result_number
 
 
+def resize(img):
+    scale_percent = 200 # percent of original size
+    width = int(img.shape[1] * scale_percent / 100)
+    height = int(img.shape[0] * scale_percent / 100)
+    dim = (width, height)
+    img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
+    return img
+
+
 def get_binary(image):
 
     _, img_bin = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
@@ -83,9 +92,10 @@ def show_image(image, cmap='gray'):
 
 
 if __name__ == '__main__':
-    image = cv2.imread('Images/page_4.jpg', 0)
+    image = cv2.imread('../test_project/Images/page_4.jpg', 0)
     bin_img = get_binary(image)
-    # show_image(bin_img)
+    show_image(bin_img)
+    exit()
     blur_img = blur(bin_img)
     # show_image(blur_img)
     erode_img = erode(blur_img)
